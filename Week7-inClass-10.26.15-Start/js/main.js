@@ -7,8 +7,8 @@ function setup(){
 
     var myArray = [];//creat blank array
     //add stuff to the array with a loop
-    for (var i=0; i<10; i++){
-        myArray[i] = i;
+    for (var i=0; i<10000; i++){
+        myArray[i] = "item" + i;
     }
     console.log(myArray[0]);
     console.log(myArray[1]);
