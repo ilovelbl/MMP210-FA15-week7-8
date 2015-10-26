@@ -11,8 +11,6 @@ function Bubble(){
 
     //method: draw a bubble <---------------this line define the method which bubble looks like
     this.drawBubble = function(){
-        globalColor = color (random(255),random(255),random(255));
-        fill(globalColor);
     ellipse(this.x,this.y,this.bubbleSize,this.bubbleSize);
     }
 }//end Bubble
@@ -42,3 +40,9 @@ function setup(){
     console.log(myArray);
 }//end setup
 
+
+//listen for mouse presses with the buit-in p5mousePressed method
+function mousePressed(){
+    //check tha this is working
+    console.log("mouse Pressed");
+}
