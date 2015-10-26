@@ -1,5 +1,5 @@
 //global variables
-
+var globalColor;
 
 //Bubble Constructor
 function Bubble(){
@@ -9,8 +9,10 @@ function Bubble(){
     this.r = 20; // r is for radius wich is 1/2 the width fo the circle
     this.bubbleSize = this.r*2;//width and height are twice the radius
 
-    //draw a bubble
+    //method: draw a bubble <---------------this line define the method which bubble looks like
+    this.drawBubble = function(){
     ellipse(this.x,this.y,this.bubbleSize,this.bubbleSize);
+    }
 }//end Bubble
 
 
@@ -23,7 +25,8 @@ function setup(){
     //add stuff to the array with a loop
     for (var i=0; i<20; i++){
         //add Bubbles to the array
-        myArray[i] = new Bubble;
+        myArray[i] = new Bubble();
+        myArray[i].drawBubble();// <----------this line really act "draw bubble"
     }
 
     //log out the array
