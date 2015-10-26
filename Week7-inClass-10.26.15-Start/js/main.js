@@ -1,5 +1,21 @@
 //global variables
 
+
+//Bubble Constructor
+function Bubble(){
+    //creat x & y propertites (variable)
+    this.x = random(width);
+    this.y = random(height);
+    this.r = 20; // r is for radius wich is 1/2 the width fo the circle
+    this.bubbleSize = r*2;//width and height are twice the radius
+
+
+    //draw a bubble
+    ellipse(this.x,this.y,this.bubbleSize,this.bubbleSize);
+}//end Bubble
+
+
+
 function setup(){
     //create the canvas. put into a variable to associate with a element
     var cnv = createCanvas(800,3000);
