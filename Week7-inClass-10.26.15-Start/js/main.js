@@ -1,5 +1,5 @@
 //global variables
-var globalColor;
+var globalColor;    var myArray = [];//creat blank array
 
 //Bubble Constructor
 function Bubble(){
@@ -13,6 +13,14 @@ function Bubble(){
     this.drawBubble = function(){
     ellipse(this.x,this.y,this.bubbleSize,this.bubbleSize);
     }
+
+    this.changeColor = function(){
+        a = random(255);
+        b = random(255);
+        c = random(255);
+        fill(a,b,c);
+        this.drawBubble();
+    }
 }//end Bubble
 
 
@@ -21,23 +29,14 @@ function setup(){
     var cnv = createCanvas(windowWidth,windowHeight);
     cnv.parent("windows");
 
-    var myArray = [];//creat blank array
+
     //add stuff to the array with a loop
     for (var i=0; i<20; i++){
         //add Bubbles to the array
         myArray[i] = new Bubble();
-        myArray[i].drawBubble();// <----------this line really act "draw bubble"
+        myArray[i].drawBubble();
     }
 
-    //log out the array
-    console.log(myArray);
-
-    // Loop to go through every item in the array
-    for(var i=0; i < myArray.length; i++){
-//        myArray[i]+=100;
-        console.log(myArray[i]);
-    }
-    console.log(myArray);
 }//end setup
 
 
@@ -45,4 +44,23 @@ function setup(){
 function mousePressed(){
     //check tha this is working
     console.log("mouse Pressed");
-}
+
+    //loop through myArray and check if mouse is in each Bubble
+    var d;
+    for(var i=0; i< myArray.length; i++){
+//        myArray[i].x myArray[i].r
+        //click if mouse is inside of the circle
+        var d = dist(mouseX,mouseY, myArray[i].x,myArray[i].y);
+        console.log("distance",d);
+
+
+        //check to see if the distance is less than the radius
+        //ie is the mouse in the bubble
+        if (d < myArray[i].r) {
+            console.log("mouse in bubble")
+            myArray[i].changeColor(); //call the color vhange function
+        }
+
+
+    }
+}//end mousePressed
