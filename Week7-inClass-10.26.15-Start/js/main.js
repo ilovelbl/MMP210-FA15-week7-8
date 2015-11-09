@@ -31,7 +31,7 @@ function setup(){
 
 
     //add stuff to the array with a loop
-    for (var i=0; i<20; i++){
+    for (var i=0; i<200; i++){
         //add Bubbles to the array
         myArray[i] = new Bubble();
         myArray[i].drawBubble();
