@@ -122,6 +122,8 @@ function drawChip (startX,startY){
 
 
     ////////////////core rect//////////////////////////////////
+    fill('gray');
+    quad(startX+5*25,startY+4.5*25,startX+6.5*25,startY+6*25,startX+5*25,startY+7.5*25,startX+3.5*25,startY+6*25);
     fill(globalColor);
     quad(startX+5*25,startY+4.75*25,startX+6.25*25,startY+6*25,startX+5*25,startY+7.25*25,startX+3.75*25,startY+6*25);
     fill('lightgray');
@@ -234,6 +236,10 @@ function drawCircle(startX,startY){
     ellipse (startX + 6.5*25, startY + 8.5*25,8,8); //center circle
 
         ////////////////core rect//////////////////////////////////
+    fill(globalColor);
+    quad(startX+5*25,startY+4.25*25,startX+6.75*25,startY+6*25,startX+5*25,startY+7.75*25,startX+3.25*25,startY+6*25);
+    fill('gray');
+    quad(startX+5*25,startY+4.5*25,startX+6.5*25,startY+6*25,startX+5*25,startY+7.5*25,startX+3.5*25,startY+6*25);
     fill(o,s,b);
     quad(startX+5*25,startY+4.75*25,startX+6.25*25,startY+6*25,startX+5*25,startY+7.25*25,startX+3.75*25,startY+6*25);
     fill('lightgray');
