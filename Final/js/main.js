@@ -5,7 +5,8 @@ var GRAVITY = 1;
 var JUMP = 20;
 
 function setup() {
-    createCanvas(windowWidth,windowHeight);
+    createCanvas(850,850);
+
 
     cowboy = createSprite(200,610);
     cowboy.addAnimation("nomal","assets/cb-s1.png", "assets/cb-s2.png");
@@ -23,31 +24,30 @@ function setup() {
 }
 
 function draw() {
-    background(255,255,255);
+    background(155,155,155);
 
     fill (200);
 
     cowboy.velocity.y += GRAVITY;
     if(cowboy.collide(platform)){
         cowboy.velocity.y = 0;
-        cowboy.changeAnimation("nomal");
+//        cowboy.changeAnimation("nomal");
     }
 
-    bullets.setSpeed(7,180);
-    if (bullets.collide(cowboy)){
-        bullets.setSpeed(0,0);
+    if(keyWentDown("a"))
+        {
+        cowboy.changeAnimation("stretch");
+        cowboy.animation.rewind();
+        cowboy.velocity.y = -JUMP;
+        }
 
-        cowboy.changeAnimation("died");
-    }
 
+        bullets.setSpeed(7,180);
+        if (bullets.collide(cowboy)){
+            bullets.remove();
+            cowboy.changeAnimation("died");
+        }
 
-
-  if(keyWentDown("a"))
-    {
-    cowboy.changeAnimation("stretch");
-    cowboy.animation.rewind();
-    cowboy.velocity.y = -JUMP;
-    }
 
     drawSprites();
 }
