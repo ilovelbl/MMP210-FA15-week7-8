@@ -1,6 +1,6 @@
 var cowboy;
 var platform;
-
+var bullets;
 var GRAVITY = 1;
 var JUMP = 20;
 
@@ -11,8 +11,13 @@ function setup() {
     cowboy.addAnimation("nomal","assets/cb-s1.png", "assets/cb-s2.png");
     cowboy.addAnimation("stretch","assets/cb-jp1.png","assets/cb-jp1.png", "assets/cb-jp2.png", "assets/cb-jp2.png", "assets/cb-jp2.png", "assets/cb-jp2.png", "assets/cb-jp2.png", "assets/cb-jp2.png", "assets/cb-jp2.png", "assets/cb-jp2.png", "assets/cb-jp2.png", "assets/cb-jp2.png", "assets/cb-jp2.png", "assets/cb-jp2.png", "assets/cb-jp2.png", "assets/cb-jp2.png", "assets/cb-jp2.png", "assets/cb-jp2.png", "assets/cb-jp2.png", "assets/cb-jp2.png", "assets/cb-jp2.png", "assets/cb-jp2.png", "assets/cb-jp2.png", "assets/cb-jp2.png", "assets/cb-jp2.png", "assets/cb-jp2.png", "assets/cb-jp2.png");
 
-      //if defined, the collider will be used for mouse events
-    cowboy.setCollider("circle", 0,0,134);
+    cowboy.setCollider("rectangle", 0,0,20,253);
+
+
+    bullets = createSprite(800,600);
+    bullets.addAnimation("shoot","assets/small_circle0001.png");
+
+    bullets.setCollider("po",100,100,1000)
 
     platform = createSprite(400, 800);
     platform.addAnimation("normal", "assets/grd.png");
@@ -28,6 +33,12 @@ function draw() {
         cowboy.velocity.y = 0;
         cowboy.changeAnimation("nomal");
     }
+
+    bullets.setSpeed(7,180);
+    if (bullets.collide(cowboy)){
+        bullets.setSpeed(0,0);
+    }
+
 
 
   if(keyWentDown("x"))
